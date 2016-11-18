@@ -1,20 +1,18 @@
-
 (function main()
 {
-	var pace = 200;
-	var points = 0;
-	var canv = document.getElementById('myCanvas');
-	var context = canv.getContext("2d");
+	var pace = 150, snakeSpeed = 10,
+		points = 0;
+		canv = document.getElementById('myCanvas'),
+		context = canv.getContext("2d"),
+		theFood = Object.create(Food).init(100, 100, 8, 8),
+		headNode = Object.create(Node).init(55, 55, 8, 8),
+		snake = Object.create(Snake).init('right', snakeSpeed, headNode),
+		collisionController = Object.create(CollisionController).init(),
+		nodeController = Object.create(NodeController).init(),
+		keyController = Object.create(KeyController).init(),
+		foodController = Object.create(FoodController).init(),
+		drawer = Object.create(Drawer).init(canv, context);
 
-	var theFood = Object.create(Food).init(100, 100, 8, 8);
-	var headNode = Object.create(Node).init(55, 55, 8, 8);
-	var snake = Object.create(Snake).init('right', 10, headNode);
-	var collisionController = Object.create(CollisionController).init();
-	var nodeController = Object.create(NodeController).init();
-	var keyController = Object.create(KeyController).init();
-	var foodController = Object.create(FoodController).init();
-	var drawer = Object.create(Drawer).init(canv, context);
-	var count = 0;
 	keyController.getInput(snake);
 
 	var myTimer = setInterval(function()
@@ -50,5 +48,6 @@
 		}
 
 	}, pace);
+
 
 })();

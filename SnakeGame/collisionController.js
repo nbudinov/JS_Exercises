@@ -7,7 +7,6 @@ var CollisionController = (function() {
 
 		checkCollision(obj1, obj2)
 		{
-			// console.log(obj1.x, obj1.y, 'obj2 ', obj2.x, obj2.y);
 			if(obj1.x + obj1.w/2 > obj2.x-obj2.w/2 &&
 				 obj1.x - obj1.w/2 < obj2.x + obj2.w/2 &&
 			 	 obj1.y - obj1.h/2 < obj2.y + obj2.h/2 &&
@@ -56,7 +55,7 @@ var CollisionController = (function() {
 					{
 						if(this.checkCollision(currNode, nodeToCheckWith))
 						{
-							console.log('currNode ', currNode.x, currNode.y, 'other ', nodeToCheckWith.x, nodeToCheckWith.y);
+							// console.log('currNode ', currNode.x, currNode.y, 'other ', nodeToCheckWith.x, nodeToCheckWith.y);
 							return true;
 						}
 					}

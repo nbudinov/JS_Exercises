@@ -5,6 +5,6 @@ var LogicController = (function() {
 				return this;
 			},
 
-			
+
 		}
 })
