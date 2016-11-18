@@ -30,14 +30,6 @@
 
 			snake.move();
 
-			count++;
-			console.log(count);
-			if((count) % 5 === 0)
-			{
-				pace = pace-50;
-				console.log(pace, count);
-			}
-
 			if(collisionController.checkCollision(snake.head, theFood))
 			{
 				theFood.eaten = true;
