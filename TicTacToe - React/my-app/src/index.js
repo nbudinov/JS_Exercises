@@ -104,6 +104,19 @@ class Game extends React.Component {
         }
     }
 
+    jumpTo(move) {
+        console.log(move);
+        const history = this.state.history;
+        let newHistory = history.slice(0, move+1);
+        this.setState({
+                history : newHistory,
+                xIsNext : (move % 2) === 0,
+        });
+
+        // console.log(history[move]);
+        // console.log(newHistory)
+    }
+
     render() {
         const history = this.state.history;
         var currentSquares = history[history.length - 1].squares.slice();
@@ -119,8 +132,8 @@ class Game extends React.Component {
                 'Move #' + index :
                 'Game start';
             return (
-                <li>
-                    <a href="#" /*onClick={() => this.jumpTo(move)}*/>{desc}</a>
+                <li key={index}>
+                    <a href="#" onClick={() => this.jumpTo(index)}>{desc}</a>
                 </li>
             );
         });
