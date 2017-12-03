@@ -8,7 +8,8 @@ class SongDetailsPage extends Component {
         super(props);
 
         this.state = {
-            song: {
+            song: { 
+                
                 name:'',
                 singer:'',
                 length:0,
