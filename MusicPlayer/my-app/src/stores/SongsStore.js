@@ -6,15 +6,22 @@ import SongActions from './../actions/SongActions'
 class SongsStore extends EventEmitter {
 
     add(song) {
-        console.log('adding')
-        
+        //        
         this.emit(this.eventTypes.song_added);
+    }
+
+    get(id) {
+        
+        this.emit(this.eventTypes.song_got);
     }
 
     handleActions(action) {                
         switch(action.type) {
             case SongActions.types.add_song : 
-                this.add(action.song)
+                this.add(action.song);
+                break;
+            case SongActions.types.get_song :
+                this.get(action.id);
                 break;
         }
     }
@@ -22,7 +29,8 @@ class SongsStore extends EventEmitter {
 
 let songStore = new SongsStore();
 songStore.eventTypes = {
-    song_added : "SONG_ADDED"
+    song_added : "SONG_ADDED",
+    song_got : "SONG_GOT",
 }
 dispatcher.register(songStore.handleActions.bind(songStore));
 
